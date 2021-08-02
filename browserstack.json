@@ -1,0 +1,62 @@
+{
+    "auth": {
+        "username": "{bs_user}",
+        "access_key": "K7LP9nyza15vA2VSCQU5"
+    },
+    "browsers": [
+        {
+            "browser": "chrome",
+            "os": "Windows 10",
+            "versions": [
+                "latest",
+                "latest-1"
+            ]
+        }
+    ],
+    "run_settings": {
+        "cypress_config_file": "cypress.json",
+        "cypress_proj_dir": "./",
+        "project_name": "Cypress-cucumber template",
+        "build_name": "build-1",
+        "exclude": [],
+        "parallels": 2,
+        "specs":["cypress/integration/features/**.feature"],
+        "npm_dependencies": {
+            "cypress-cucumber-preprocessor": "^4.1.3",
+            "cypress-log-to-output": "^1.1.2",
+            "cypress-multi-reporters": "^1.5.0",
+            "cypress-parallel": "^0.3.0",
+            "cypress-terminal-report": "^3.2.2",
+            "cypress-xpath": "^1.6.2",
+            "eslint-plugin-cypress": "^2.11.2",
+            "mocha": "^9.0.2",
+            "mochawesome": "^6.2.2",
+            "mochawesome-merge": "^4.2.0",
+            "mochawesome-report-generator": "^4.1.0",
+            "multiple-cucumber-html-reporter": "^1.18.0",
+            "eslint-config-standard": "^15.0.0",
+            "fs-extra": "^10.0.0",
+            "npm-run-all": "^4.1.2"
+        },
+        "package_config_options": {
+            "cypress-cucumber-preprocessor": {
+                "nonGlobalStepDefinitions": false,
+                "stepDefinitions": "cypress/integration/step_definitions",
+                "cucumberJson": {
+                  "generate": true,
+                  "outputFolder": "cypress/integration/reports/cucumber-json",
+                  "filePrefix": "",
+                  "fileSuffix": ".cucumber"
+                }
+              }
+        },
+        "headless": true
+    },
+    "connection_settings": {
+        "local": true,
+        "local_identifier": "cylocal",
+        "local_mode": null,
+        "local_config_file": null
+    },
+    "disable_usage_reporting": false
+}

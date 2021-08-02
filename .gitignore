@@ -1,0 +1,10 @@
+/package-lock.json
+.idea/
+/node_modules/
+cypress/integration/reports
+package-lock.json
+local.log
+.idea
+cypress/parallel-weights.json
+/allure-report/
+/allure-results/

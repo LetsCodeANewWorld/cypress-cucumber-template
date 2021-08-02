@@ -1,0 +1,76 @@
+{
+  "name": "cypress-cucumber-template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "combine-reports": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/mochareports/report.json",
+    "generate-report": "node cucumber-html-report.js",
+    "postTestHtmlReport": "npm run generate-report",
+    "cy:parallel": "cypress-parallel -s cy:run -t 2 -d cypress/integration/features -a '\"--browser chrome\"'",
+    "cy:snapshot": "cypress open --config-file ./custVisualSnapshotConfig.json",
+    "test:staging:firefox": "cypress run -s cypress/integration/features/**.feature --browser firefox",
+    "test:staging:config": "cypress run -e configFile=staging -s cypress/integration/features/google-search-keyword.feature --browser firefox",
+    "dev": "concurrently --kill-others \"npm run test:staging:firefox\" \"npm run test:staging:chrome\"",
+    "cy:run": "cypress run --env allure=true -s cypress/integration/features/api_user_registration.feature",
+    "allure:report": "allure generate allure-results -o allure-report",
+    "allure:clear": "rm -R -f allure-results && rm -R -f allure-reports",
+    "clean:reports": "rm -R -f cypress/integration/reports && mkdir cypress/integration/reports && mkdir cypress/integration/reports/html && mkdir cypress/integration/reports/cucumber-json",
+    "pretest": "npm run allure:clear",
+    "postTest": "npm run allure:report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@bahmutov/cy-api": "^1.5.0",
+    "browserstack-cypress-cli": "^1.8.1",
+    "concurrently": "^6.2.0",
+    "cosmiconfig": "^7.0.0",
+    "cypress": "^8.1.0",
+    "cypress-axe": "^0.12.2",
+    "cypress-cucumber-preprocessor": "^4.1.3",
+    "cypress-image-snapshot": "^4.0.1",
+    "cypress-log-to-output": "^1.1.2",
+    "cypress-multi-reporters": "^1.5.0",
+    "cypress-parallel": "^0.3.0",
+    "cypress-plugin-snapshots": "^1.4.4",
+    "cypress-plugin-tab": "^1.0.5",
+    "cypress-terminal-report": "^3.2.2",
+    "cypress-visual-regression": "^1.5.8",
+    "cypress-xpath": "^1.6.2",
+    "eslint-plugin-cypress": "^2.11.2",
+    "faker": "^5.5.3",
+    "fs-extra": "^10.0.0",
+    "mocha": "^9.0.2",
+    "mochawesome": "^6.2.2",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^4.1.0",
+    "multiple-cucumber-html-reporter": "^1.18.0"
+  },
+  "dependencies": {
+    "@shelex/cypress-allure-plugin": "^2.8.6",
+    "allure-commandline": "^2.13.8",
+    "axe-core": "^4.2.3",
+    "eslint-config-standard": "^15.0.0",
+    "npm-run-all": "^4.1.2"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "stepDefinitions": "cypress/integration/step_definitions",
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cypress/integration/reports/cucumber-json",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LetsCodeANewWorld/cypress-cucumber-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LetsCodeANewWorld/cypress-cucumber-template/issues"
+  },
+  "homepage": "https://github.com/LetsCodeANewWorld/cypress-cucumber-template#readme",
+  "description": ""
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://on.cypress.io/cypress.schema.json",
+  "projectId": "owprqi",
+  "screenshotsFolder": "cypress/integration/reports/cypress-screenshots",
+  "videosFolder": "cypress/integration/reports/cypress-videos",
+  "testFiles": "**/features/*.{feature,features,.js}",
+  "video": false,
+  "screenshotOnRunFailure":true,
+  "watchForFileChanges": true,
+  "trashAssetsBeforeRuns": true,
+  "baseUrl": "https://google.co.uk",
+  "waitForAnimations": true,
+  "animationDistanceThreshold": 50,
+  "pageLoadTimeout": 40000,
+  "chromeWebSecurity": false,
+  "requestTimeout": 10000,
+	"responseTimeout": 30000,
+	"failOnStatusCode": false,
+  "ignoreTestFiles": [
+    "*.js","**/__snapshots__/*","**/__image_snapshots__/*"
+  ],
+  "env":{
+    "url":"https://google.co.uk",
+    "api_base_url":"",
+    "TAGS": "not @ignore"
+  }
+}
